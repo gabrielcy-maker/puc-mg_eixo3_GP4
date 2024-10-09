@@ -18,7 +18,6 @@ Este projeto foi desenvolvido para facilitar o backup dos dispositivos Fortigate
 🛠️ Método de Instalação
 1. Clone o repositório do projeto
 
-bash
 
 [git clone https://github.com/seu-usuario/seu-repositorio.git](https://github.com/gabrielcy-maker/puc-mg_eixo3_GP4.git)
 cd puc-mg_eixo3_GP4
@@ -27,8 +26,6 @@ cd puc-mg_eixo3_GP4
 
 Certifique-se de que o Ansible esteja corretamente configurado em seu ambiente e que as bibliotecas do Fortigate estejam instaladas:
 
-bash
-
 sudo apt install ansible
 ansible-galaxy collection install fortinet.fortios
 
@@ -36,15 +33,11 @@ ansible-galaxy collection install fortinet.fortios
 
 Instale um servidor web (Apache ou Nginx) e o PHP para rodar a interface de login e o processo de inclusão de hosts:
 
-bash
-
 sudo apt install apache2 php libapache2-mod-php
 
 4. Configuração da Interface Web
 
 Coloque os arquivos do projeto na pasta /var/www/html (ou equivalente):
-
-bash
 
 sudo cp -r * /var/www/html/
 
@@ -52,15 +45,11 @@ sudo cp -r * /var/www/html/
 
 Verifique o arquivo de inventário do Ansible (por padrão, hosts.ini) para garantir que os novos hosts sejam adicionados corretamente:
 
-bash
-
 nano /etc/ansible/hosts.ini
 
 6. Permissões
 
 Certifique-se de que as permissões para o arquivo de inventário e scripts PHP estejam corretas:
-
-bash
 
 sudo chown -R www-data:www-data /var/www/html
 sudo chmod -R 755 /var/www/html
@@ -68,8 +57,6 @@ sudo chmod -R 755 /var/www/html
 7. Acesso à Interface
 
 Agora, você pode acessar a interface web via navegador:
-
-arduino
 
 http://seu-ip/login.php
 
