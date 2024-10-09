@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Host to Ansible</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('wallpaper.png');
+            background-size: cover; /* Faz a imagem cobrir todo o fundo */
+            background-position: center; /* Centraliza a imagem */
+            background-repeat: no-repeat; /* Evita que a imagem se repita */
+            color: white; /* Define a cor do texto como branco para contraste */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente para contraste */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label, input {
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="submit"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        img {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Host to Ansible Inventory</h1>
+
+        <!-- Adicionando a imagem logo abaixo do título -->
+        <img src="logo.png" alt="Company Logo" style="width:150px;height:auto;">
+
+        <form action="process.php" method="POST">
+            <label for="host_name">Host Name:</label>
+            <input type="text" id="host_name" name="host_name">
+
+            <label for="ansible_host">IP Address:</label>
+            <input type="text" id="ansible_host" name="ansible_host">
+
+            <label for="access_token">Fortios Access Token:</label>
+            <input type="text" id="access_token" name="access_token">
+
+            <label for="host_alias">Host Alias:</label>
+            <input type="text" id="host_alias" name="host_alias">
+
+            <input type="submit" value="Add Host">
+        </form>
+    </div>
+</body>
+</html>
+

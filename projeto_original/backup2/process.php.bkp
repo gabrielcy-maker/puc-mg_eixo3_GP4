@@ -1,0 +1,21 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+$host_name = $_POST['host_name'] ?? '';
+$ansible_host = $_POST['ansible_host'] ?? '';
+$access_token = $_POST['access_token'] ?? '';
+$host_alias = $_POST['host_alias'] ?? '';
+
+// Caminho completo para o dotnet
+$dotnet_path = '/usr/local/dotnet/dotnet';
+
+$command = "$dotnet_path run --project /var/www/html/HostAdder/HostAdder.csproj $host_name $ansible_host $access_token $host_alias";
+echo "Executing: $command<br>";
+
+$output = shell_exec($command . ' 2>&1');
+
+echo "<pre>$output</pre>";
+?>
+

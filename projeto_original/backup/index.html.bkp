@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Host to Ansible</title>
+
+     <img src="./logo.png" alt="Company Logo" style="width:150px;height:auto;">
+</head>
+<body>
+    <h1>Add Host to Ansible Inventory</h1>
+    <form action="process.php" method="POST">
+        <label for="host_name">Host Name:</label><br>
+        <input type="text" id="host_name" name="host_name"><br><br>
+
+        <label for="ansible_host">IP Address:</label><br>
+        <input type="text" id="ansible_host" name="ansible_host"><br><br>
+
+        <label for="access_token">Fortios Access Token:</label><br>
+        <input type="text" id="access_token" name="access_token"><br><br>
+
+        <label for="host_alias">Host Alias:</label><br>
+        <input type="text" id="host_alias" name="host_alias"><br><br>
+
+        <input type="submit" value="Add Host">
+    </form>
+</body>
+</html>
+

@@ -1,0 +1,14 @@
+/var/www/html/HostAdder/bin/Debug/net7.0/HostAdder
+/var/www/html/HostAdder/bin/Debug/net7.0/HostAdder.deps.json
+/var/www/html/HostAdder/bin/Debug/net7.0/HostAdder.runtimeconfig.json
+/var/www/html/HostAdder/bin/Debug/net7.0/HostAdder.dll
+/var/www/html/HostAdder/bin/Debug/net7.0/HostAdder.pdb
+/var/www/html/HostAdder/obj/Debug/net7.0/HostAdder.GeneratedMSBuildEditorConfig.editorconfig
+/var/www/html/HostAdder/obj/Debug/net7.0/HostAdder.AssemblyInfoInputs.cache
+/var/www/html/HostAdder/obj/Debug/net7.0/HostAdder.AssemblyInfo.cs
+/var/www/html/HostAdder/obj/Debug/net7.0/HostAdder.csproj.CoreCompileInputs.cache
+/var/www/html/HostAdder/obj/Debug/net7.0/HostAdder.dll
+/var/www/html/HostAdder/obj/Debug/net7.0/refint/HostAdder.dll
+/var/www/html/HostAdder/obj/Debug/net7.0/HostAdder.pdb
+/var/www/html/HostAdder/obj/Debug/net7.0/HostAdder.genruntimeconfig.cache
+/var/www/html/HostAdder/obj/Debug/net7.0/ref/HostAdder.dll
