@@ -58,10 +58,26 @@ A criação de uma interface HTML, integrada ao código em *C#* e *bash*, també
 Em resumo, essa automação traz uma melhoria substancial para a eficiência do ambiente de TI do cliente, proporcionando maior confiabilidade na gestão dos inventários de máquinas, elementos essenciais para a execução eficaz das tarefas.
 
 ### 1.3 Objetivo Geral
+Principal objetivo do procedimento/ferramenta.
+Backup de Ativos de segurança: Visando facilitar o uso dos usuários na automação
+de ativos de segurança, desenvolvemos uma interface gráfica intuitiva e acessível.
+Essa interface foi projetada para simplificar o processo de adição e gestão de ativos
+de segurança, permitindo que usuários com diferentes níveis de habilidade técnica
+possam interagir com as ferramentas de forma eficiente e prática.
+Por meio dessa interface, conseguimos "esconder" a complexidade técnica
+envolvida na configuração e manutenção dos sistemas de segurança. Em vez de
+precisar mergulhar em detalhes complicados, o usuário pode realizar as tarefas
+necessárias de maneira mais simples e direta, quase como se estivesse usando um
+aplicativo comum. Essa abordagem não apenas melhora a experiência do usuário,
+mas também garante que os ativos sejam configurados e monitorados corretamente,
+seguindo as melhores práticas de segurança.
+Além disso, ao reduzir a necessidade de intervenção manual e minimizar o risco de
+erros, a interface gráfica contribui para uma proteção mais segura dos ativos. Com
+essa solução, o processo de configurar e monitorar os ativos de segurança se torna
+mais acessível e menos chance de erros, garantindo uma proteção mais
+consistente. A interface também ajuda a economizar tempo e recursos, tornando a
+segurança geral mais eficiente sem complicar o trabalho dos usuários.
 
-Facilitar o uso dos usuários na automação de ativos de segurança, desenvolvendo uma interface gráfica intuitiva e acessível. Essa interface foi projetada para simplificar o processo de adição e gestão de ativos de segurança, permitindo que usuários com diferentes níveis de habilidade técnica possam interagir com as ferramentas de forma eficiente e prática.
-
-Por meio dessa interface, conseguimos "esconder" a complexidade técnica envolvida na configuração e manutenção dos sistemas de segurança. Em vez de precisar mergulhar em detalhes complicados, o usuário pode realizar as tarefas necessárias de maneira mais simples e direta.
 
 ### 1.4 Objetivos Específicos
 
@@ -87,13 +103,56 @@ Por meio dessa interface, conseguimos "esconder" a complexidade técnica envolvi
 
 ### 2.1 Registro da reunião com o parceiro
 
-(*Conteúdo sobre a reunião*)
+![image](https://github.com/user-attachments/assets/2a2cea0c-fb69-492a-be3e-e7abc46a9f59)
+
 
 ### 2.2 Descrição do problema
 
-Ao inserir um host no arquivo de inventário do Ansible, alguns problemas podem surgir, especialmente se o processo não for automatizado corretamente. Exemplos incluem erros de sintaxe no arquivo de inventário, hosts duplicados, permissões inadequadas, e problemas de conectividade com o host.
-
----
+Descrição do problema:
+Ao inserir um host no arquivo de inventário do Ansible, alguns problemas podem
+surgir, especialmente se o processo não for automatizado corretamente ou se
+houver falhas na configuração. Aqui estão os principais problemas que você pode
+enfrentar:
+1. Sintaxe do arquivo de inventário
+Erro de sintaxe: Se o arquivo de inventário não seguir o formato correto (por
+exemplo, falta de colchetes, uso inadequado de espaços ou tabulações), o Ansible
+não conseguirá interpretar corretamente os hosts e grupos.
+Campos incorretos: Colocar informações no lugar errado ou não formatar
+corretamente pode gerar problemas na execução do playbook.
+2. Hosts duplicados
+Entradas duplicadas: Inserir o mesmo host mais de uma vez no inventário pode
+causar comportamento inesperado, como o Ansible tentando configurar o mesmo
+host várias vezes ou conflitos de variáveis de grupo.
+3. Permissões de arquivo
+Permissão inadequada no arquivo hosts.ini: Se o script ou o usuário que adiciona
+os hosts não tiver permissões adequadas para editar o arquivo, o processo de
+adição falhará.
+Permissões de execução SSH: O Ansible precisa se conectar via SSH aos hosts.
+Se as permissões de chaves SSH ou configurações de autenticação não forem
+configuradas corretamente, o acesso ao host será negado.
+4. Falta de validação de entradas
+Endereços IP ou nomes de host incorretos: Inserir um endereço IP ou nome de
+host incorreto ou que não seja resolvível resultará em falhas ao tentar se conectar
+ao host.
+Formato incorreto de variáveis: Quando adicionar variáveis associadas ao host, o
+formato incorreto pode causar erros durante a execução dos playbooks.
+5. Conflito de grupos
+Conflitos de grupos: Adicionar um host a múltiplos grupos com diferentes variáveis
+pode gerar conflito de configurações. O Ansible segue uma hierarquia para resolver
+variáveis conflitantes, mas isso pode causar comportamento inesperado.
+6. Conectividade com o host
+Problemas de rede ou firewall: Mesmo que o host seja adicionado corretamente,
+se houver problemas de conectividade de rede, firewall, ou outras restrições, o
+Ansible não conseguirá se conectar ao host.
+7. Ordem de execução
+Adição fora de ordem: Em inventários dinâmicos ou quando há scripts
+automatizando a inserção, a ordem de execução pode ser um problema se alguns
+hosts precisarem ser configurados antes de outros.
+8. Inventário dinâmico mal configurado
+Se estiver utilizando um inventário dinâmico, erros na configuração podem impedir
+o Ansible de detectar ou adicionar novos hosts corretamente.
+A validação do arquivo e do formato é fundamental, e o uso de scripts que tratem
+esses erros automaticamente pode ajudar a mitigar esses problemas.
 
 ## Estudo de Mercado
 
