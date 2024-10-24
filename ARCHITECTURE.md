@@ -81,23 +81,88 @@ segurança geral mais eficiente sem complicar o trabalho dos usuários.
 
 ### 1.4 Objetivos Específicos
 
-- **Configuração Inicial do Ambiente Ansible**:
-   - Instalar e configurar o Ansible em um ambiente Linux, com a versão necessária.
-   - Garantir que todos os componentes necessários estejam configurados corretamente.
-
-- **Criação e Gerenciamento do Inventário Ansible**:
-   - Desenvolver uma solução para adicionar e gerenciar hosts no inventário Ansible.
-   - Garantir que o inventário seja bem organizado e que as informações críticas sejam armazenadas de forma segura.
-
-- **Desenvolvimento e Execução de Playbooks Ansible**:
-   - Escrever e executar playbooks Ansible para realizar tarefas automatizadas.
-   - Garantir que os playbooks utilizem as variáveis e conexões definidas no inventário.
-
-- **Integração com Backend C# e Interface Web**:
-   - Desenvolver uma integração entre um backend em C# e scripts Bash.
-   - Criar uma interface web para facilitar a inserção de novos hosts.
-
----
+1.4 Objetivos Específicos
+Objetivos Específicos
+No desenvolvimento e implementação de um sistema de gerenciamento
+automatizado utilizando Ansible, a integração com scripts Bash, e a interface com
+um backend em C#, é essencial definir objetivos específicos para assegurar que o
+sistema seja robusto, eficiente e fácil de usar. Abaixo estão os pontos específicos
+que queremos alcançar e o caminho detalhado para o desenvolvimento de cada um.
+Configuração Inicial do Ambiente Ansible
+Pontos Específicos:
+● Instalar e configurar o Ansible em um ambiente Linux, com a versão
+específica necessária (por exemplo, Ansible 2.9.27).
+● Garantir que todos os componentes necessários (bibliotecas, módulos, e
+collections) sejam corretamente instalados e configurados.
+Caminho para Desenvolvimento:
+● Instalação do Ansible: Utilizar pip para instalar a versão exata do Ansible
+necessária para o ambiente. Caso surjam problemas, como o comando
+ansible não sendo encontrado, ajustes serão feitos no PATH ou
+reconfiguração do ambiente será necessária.
+● Configuração do ansible.cfg: Criar e configurar o arquivo ansible.cfg para
+definir os caminhos de inventário, módulos, plugins, e logs. O arquivo deve
+estar localizado em um diretório apropriado (como /etc/ansible/ para
+configurações globais ou no diretório do projeto para configurações
+específicas).
+● Instalação de Collections: Criar um arquivo requirements.yml e utilizar o
+comando ansible-galaxy para instalar todas as collections necessárias,
+garantindo que o ambiente esteja preparado para o gerenciamento de
+dispositivos como firewalls Fortinet e outros.
+Criação e Gerenciamento do Inventário Ansible
+Pontos Específicos:
+● Desenvolver uma solução para adicionar e gerenciar hosts no inventário
+Ansible, permitindo uma inserção fácil e automatizada de novos dispositivos.
+● Garantir que o inventário seja bem organizado e que as informações críticas
+(como IPs, tokens de acesso, etc.) sejam armazenadas de forma segura e
+acessível.
+Caminho para Desenvolvimento:
+● Criação do Arquivo hosts.ini: Estruturar o arquivo de inventário em grupos de
+hosts, como [fw-fgt], com todas as variáveis necessárias definidas para cada
+host. Assegurar que o arquivo esteja formatado corretamente para evitar
+erros de parsing pelo Ansible.
+● Desenvolvimento de Script Bash para Inserção de Hosts: Criar um script Bash
+que solicita ao usuário as informações necessárias (nome do host, IP, token
+de acesso, etc.) e adiciona esses hosts ao arquivo de inventário de forma
+automatizada. O script também deve verificar a existência de grupos e
+adicioná-los se necessário.
+Desenvolvimento e Execução de Playbooks Ansible
+Pontos Específicos:
+● Escrever e executar playbooks Ansible para realizar tarefas automatizadas,
+como backup de configurações de dispositivos de rede.
+● Garantir que os playbooks sejam configurados corretamente para utilizar as
+variáveis e conexões definidas no inventário e no ansible.cfg.
+Caminho para Desenvolvimento:
+● Escrita de Playbooks: Criar playbooks específicos que utilizam módulos como
+fortios_monitor_fact para interagir com dispositivos Fortinet. Esses playbooks
+devem ser capazes de realizar tarefas como backup de configurações e
+devem estar configurados para se conectar aos dispositivos usando métodos
+seguros (httpapi, SSL, etc.).
+● Testes e Validação: Executar os playbooks utilizando o comando
+ansible-playbook, especificando o inventário correto. Validar a execução
+verificando logs e saídas para garantir que as operações foram realizadas
+com sucesso.
+Integração com Backend C# e Interface Web
+Pontos Específicos:
+● Desenvolver uma integração entre um backend em C# e scripts Bash para
+automatizar a inserção de hosts no inventário Ansible, facilitada por uma
+interface web em HTML.
+● Criar uma interface de usuário intuitiva que permita a inserção de novos hosts
+através de um formulário HTML, com os dados sendo processados pelo
+backend em C#.
+Caminho para Desenvolvimento:
+● Desenvolvimento do Backend em C#: Criar um backend em C# que utilize a
+classe Process para executar scripts Bash. Este backend receberá dados via
+HTTP POST de uma interface HTML e passará essas informações para o
+script Bash, que fará a inserção no inventário Ansible.
+● Criação da Interface HTML: Desenvolver uma página HTML com um
+formulário que capture as informações necessárias (nome do host, IP, token
+de acesso, etc.) e as envie ao backend C# para processamento. A interface
+deve ser simples e permitir feedback ao usuário sobre o sucesso ou falha da
+operação.
+● Integração e Testes: Testar a integração completa para garantir que a
+interface web, o backend C#, e os scripts Bash trabalham juntos sem
+problemas, realizando a inserção de hosts no inventário Ansible de forma
+automatizada e eficiente.
 
 ## Problema
 
@@ -157,6 +222,109 @@ esses erros automaticamente pode ajudar a mitigar esses problemas.
 ## Estudo de Mercado
 
 ### 3.1 Soluções Existentes
+No mercado de TI, existem várias ferramentas e soluções que visam automatizar o
+gerenciamento de infraestrutura, semelhantes ao projeto desenvolvido. Essas
+ferramentas oferecem funcionalidades para a gestão de dispositivos de rede,
+automação de tarefas repetitivas, e integração com diversas tecnologias para
+garantir operações eficientes e seguras. Abaixo estão algumas das principais
+ferramentas que foram identificadas como semelhantes ao projeto desenvolvido.
+Ansible
+Descrição:
+● Ansible, desenvolvido pela Red Hat, é uma ferramenta de automação de TI
+amplamente utilizada. Ela é conhecida pela sua simplicidade e por não exigir
+agentes nos sistemas gerenciados. Ansible utiliza arquivos de configuração
+YAML para definir "playbooks", que são executados para realizar tarefas
+como configuração de sistemas, deploy de aplicações, e orquestração de
+processos complexos.
+Funcionalidades Principais:
+● Automação de Configuração: Permite a configuração automatizada de
+servidores, dispositivos de rede e aplicativos.
+● Orquestração de Infraestrutura: Coordena o funcionamento de vários
+sistemas para realizar tarefas complexas.
+● Sem Agentes: Ansible utiliza uma abordagem sem agentes, usando SSH
+para comunicação, o que simplifica a administração.
+Comparação com o Projeto Desenvolvido:
+● O projeto desenvolvido utiliza Ansible como a principal ferramenta de
+automação. No entanto, a adição de um backend em C# para interagir com
+scripts Bash e uma interface HTML para gerenciamento via web oferece uma
+camada de facilidade de uso que pode não estar presente em
+implementações típicas de Ansible.
+Puppet
+Descrição:
+● Puppet é outra ferramenta de automação de configuração que, ao contrário
+do Ansible, utiliza uma abordagem baseada em agentes. Puppet permite a
+definição do estado desejado de uma infraestrutura e garante que os
+sistemas gerenciados mantenham esse estado ao longo do tempo.
+Funcionalidades Principais:
+● Gerenciamento de Configuração: Puppet permite a automação da
+configuração e a manutenção do estado desejado em toda a infraestrutura.
+● Sistema de Agentes: Requer a instalação de agentes nos sistemas
+gerenciados para aplicar e verificar as configurações.
+● Escalabilidade: É altamente escalável e utilizado em ambientes corporativos
+grandes e complexos.
+Comparação com o Projeto Desenvolvido:
+● Embora Puppet seja poderoso, o projeto desenvolvido optou por Ansible
+devido à sua simplicidade e abordagem sem agentes, facilitando a
+implementação em ambientes onde a instalação de agentes pode ser difícil
+ou indesejável.
+Chef
+Descrição:
+● Chef é uma ferramenta de automação que utiliza uma abordagem baseada
+em código para gerenciar e configurar infraestruturas. Assim como Puppet,
+Chef utiliza uma arquitetura baseada em agentes, onde os "recipes" (scripts)
+são escritos em Ruby para definir a configuração desejada.
+Funcionalidades Principais:
+● Infraestrutura como Código (IaC): Chef permite que toda a infraestrutura
+seja descrita como código, facilitando a replicação e o versionamento.
+● Automação de Configuração: Configura automaticamente servidores e
+aplicativos de acordo com as receitas definidas.
+● Flexibilidade: Chef é altamente flexível, mas essa flexibilidade vem com a
+complexidade de aprender Ruby e a arquitetura do Chef.
+Comparação com o Projeto Desenvolvido:
+● Chef oferece robustez e flexibilidade, mas sua curva de aprendizado pode ser
+uma barreira. O projeto desenvolvido com Ansible oferece uma alternativa
+mais acessível, com YAML em vez de Ruby, e integrações personalizadas
+para facilitar a operação.
+SaltStack
+Descrição:
+● SaltStack é uma ferramenta de automação que oferece alta velocidade e
+escalabilidade. Utiliza um sistema de "minions" (agentes) que se comunicam
+com o servidor central (o "master") para executar comandos remotos,
+automatizar tarefas e aplicar configurações.
+Funcionalidades Principais:
+● Execução Rápida de Comandos: Permite a execução quase instantânea de
+comandos em múltiplos servidores.
+● Arquitetura Mestre-Minion: Utiliza uma arquitetura mestre-minion para
+gerenciar a infraestrutura.
+● Modularidade: SaltStack é modular e pode ser adaptado para atender a
+necessidades específicas.
+Comparação com o Projeto Desenvolvido:
+● SaltStack é semelhante ao Ansible em termos de funcionalidades, mas o
+projeto desenvolvido optou pelo Ansible por sua simplicidade e por não exigir
+a instalação de agentes. SaltStack pode ser mais adequado em ambientes
+onde a velocidade de execução de comandos é crítica.
+Terraform
+Descrição:
+● Terraform, desenvolvido pela HashiCorp, é uma ferramenta de Infraestrutura
+como Código (IaC) que permite o provisionamento e gerenciamento de
+infraestruturas complexas através de código declarativo. Embora não seja
+focado exclusivamente na automação de configuração, como Ansible, Puppet
+ou Chef, Terraform é amplamente utilizado para gerenciar ambientes em
+nuvem.
+Funcionalidades Principais:
+● Provisionamento de Infraestrutura: Terraform permite a criação e
+gerenciamento de infraestrutura em várias plataformas de nuvem, como AWS,
+Azure e Google Cloud.
+● Destruição e Recriação Controladas: Terraform pode destruir e recriar
+ambientes de forma controlada, garantindo que a infraestrutura permaneça
+consistente com a configuração declarada.
+● Multi-Nuvem e Multi-Provedor: Terraform pode gerenciar múltiplos
+provedores de nuvem em um único arquivo de configuração.
+Comparação com o Projeto Desenvolvido:
+● Enquanto Terraform é ideal para o provisionamento inicial e gerenciamento de
+infraestrutura, o projeto desenvolvido com Ansible foca mais na configuração
+contínua e na automação de tarefas dentro dessa infraestrutura,
+complementando ferramentas como Terraform.
 
 Ferramentas como Ansible, Puppet, Chef, SaltStack, e Terraform foram analisadas, comparando suas funcionalidades com o projeto desenvolvido.
 
@@ -174,3 +342,17 @@ Ferramentas como Ansible, Puppet, Chef, SaltStack, e Terraform foram analisadas,
 | Flexibilidade          | Alta                   | Alta                 | Alta               | Alta                | Alta                |
 
 ---
+
+4. ANÁLISE DE PERFIL E DEMANDAS DOS USUÁRIOS
+4.1 Personas
+4.2 Histórias de usuários
+5. PROJETO DE INTERFACES
+6. ARQUITETURA TECNOLÓGICA DA SOLUÇÃO
+
+
+
+
+
+
+
+
