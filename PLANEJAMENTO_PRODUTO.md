@@ -405,7 +405,46 @@ Carla, uma Analista de Cibersegurança, frequentemente precisava adicionar novos
 
 7. ARQUITETURA TECNOLÓGICA DA SOLUÇÃO
 
+1. Infraestrutura Física e Ambiente de Implementação
 
+    Servidor Web: A aplicação é hospedada em um servidor Linux que possui o Apache instalado. Esse servidor é responsável por servir as páginas HTML e processar as requisições PHP.
+    Servidor de Automação: O mesmo servidor também executa scripts Bash que manipulam o arquivo de configuração hosts.ini do Ansible, facilitando a inclusão de novos hosts para as rotinas de backup.
+
+2. Infraestrutura de Software
+
+    Front-End:
+        As interfaces para o usuário são desenvolvidas em HTML, oferecendo uma interface amigável para interagir com o sistema.
+        Arquivos como login.html, index.php e logout.php fazem parte da camada de apresentação, que permite aos usuários acessarem e autenticarem-se na aplicação.
+
+    Back-End:
+        PHP: Os arquivos PHP (login.php, process.php, logout.php) são responsáveis pelo processamento das requisições do lado do servidor. Eles tratam a lógica de autenticação e conectam a interface com as funcionalidades de backend.
+        Bash Script: O arquivo process.php chama scripts Bash para automatizar a inserção de novos hosts no Ansible. Essa integração permite que um comando seja executado para adicionar entradas no arquivo hosts.ini, onde o Ansible armazena o inventário de hosts.
+        Arquivo hosts.ini: Este é o inventário do Ansible que mantém a lista de hosts gerenciados. Ele é atualizado automaticamente pelos scripts Bash chamados pelo PHP.
+
+3. Camada de Segurança
+
+    Autenticação: O arquivo login.php gerencia as credenciais de acesso ao sistema. Ele é responsável pela validação do login e pelo controle de sessão, garantindo que apenas usuários autorizados possam interagir com as funções de administração, como adicionar hosts.
+    Senhas no Código: As senhas estão armazenadas em login.php, o que não é a melhor prática. Para uma solução mais segura, recomenda-se utilizar um banco de dados seguro para armazenar essas credenciais e implementar criptografia.
+
+4. Comunicação e Integração entre Componentes
+
+    Fluxo de Operação:
+        Autenticação: O usuário acessa a página de login (login.html), onde suas credenciais são verificadas pelo arquivo login.php.
+        Inclusão de Hosts: Uma vez autenticado, o usuário pode acessar a página index.php, onde é fornecida uma interface para adicionar novos hosts.
+        Execução do Bash: Quando um novo host é adicionado, process.php executa um script Bash que insere o host no arquivo hosts.ini do Ansible, facilitando a automação das rotinas de backup.
+
+5. Camada de Rede
+
+    Serviço Local: Toda a aplicação parece estar rodando em um ambiente local, acessível apenas através do localhost ou rede interna. Isso limita o acesso a usuários autorizados no ambiente físico, aumentando a segurança.
+
+6. Componentes de Armazenamento
+
+    Arquivo hosts.ini: É onde os dados de configuração do Ansible são armazenados. Este arquivo é modificado dinamicamente para incluir novos hosts, permitindo que a rotina de backup seja facilmente atualizada.
+
+7. Segurança e Boas Práticas
+
+    Autenticação Segura: É importante reforçar a segurança da autenticação. Em vez de armazenar credenciais no arquivo PHP, considere usar um banco de dados, além de hashing seguro das senhas.
+    Permissões de Arquivo: Certifique-se de que as permissões dos arquivos (como hosts.ini e os scripts Bash) estejam restritas, para evitar que usuários não autorizados modifiquem o conteúdo.
 
 
 
