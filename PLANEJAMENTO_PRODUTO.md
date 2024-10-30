@@ -344,6 +344,7 @@ Ferramentas como Ansible, Puppet, Chef, SaltStack, e Terraform foram analisadas,
 ---
 
 4. ANÁLISE DE PERFIL E DEMANDAS DOS USUÁRIOS
+   
 4.1 Personas
    
 Nome: Gabriel Luiz
