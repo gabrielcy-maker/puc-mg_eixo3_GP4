@@ -383,8 +383,27 @@ Problemas ou desafios enfrentados: Muitos colegas de equipe não possuem conheci
 Habilidades técnicas e nível de experiência: Conhecimento fundamental sobre administração de servidores Linux, experiência inicial em Bash scripting, e habilidades de automação com Ansible. Noções gerais de segurança de redes, bem como familiaridade com ferramentas de backup e automação de infraestrutura.
 
 4.2 Histórias de usuários
+
+1. Problema com a Atualização do Backup Manual
+Gabriel é um Analista de Cibersegurança Jr que recentemente foi responsável por incluir um novo servidor nas rotinas de backup da empresa. Como ele não estava familiarizado com a ferramenta Ansible e a linha de comando, Gabriel precisou seguir um processo manual extenso, consultando a documentação e solicitando ajuda de colegas mais experientes. Esse processo foi demorado e envolveu erros de configuração, atrasando a inclusão do servidor e afetando a confiabilidade do backup. Essa experiência destacou a necessidade de uma interface mais intuitiva para adicionar hosts, algo que pudesse ser utilizado por todos da equipe, mesmo sem conhecimento técnico profundo.
+
+2. Falta de Acesso à CLI durante uma Emergência
+José Marcos estava de plantão quando um novo servidor crítico precisou ser adicionado ao backup devido a uma falha inesperada em outro servidor. No entanto, ele não conseguiu acessar a CLI do ambiente remotamente, pois a VPN apresentava instabilidade. Como José não tinha uma alternativa de fácil acesso para adicionar o host ao inventário do Ansible, ele foi forçado a aguardar até que o problema da VPN fosse resolvido, o que resultou em um risco elevado de perda de dados. Essa situação deixou claro que uma ferramenta acessível e simplificada, disponível fora da CLI, poderia prevenir situações semelhantes no futuro.
+
+3. Complexidade Técnica Impede a Automação
+Pedro Marcelo se deparou com uma situação frustrante ao tentar automatizar a inclusão de um conjunto de novos servidores em produção nas rotinas de backup. Apesar de já ter noções de Ansible, ele achou o processo complicado, especialmente devido à falta de prática com a sintaxe da ferramenta e a necessidade de interagir diretamente com o hosts.ini. Isso levou a uma configuração errada que não foi detectada até que uma falha de hardware ocorresse. Como resultado, a empresa acabou não tendo backup de alguns servidores, o que gerou a perda parcial de dados. Esse episódio mostrou a importância de criar uma ferramenta mais fácil, que reduzisse a chance de erros humanos durante a configuração.
+
+4. Dependência de Especialistas para Tarefas Simples
+Carla, uma Analista de Cibersegurança, frequentemente precisava adicionar novos servidores ao backup. Contudo, sempre que algum analista Jr da equipe precisava realizar essa tarefa, havia uma dependência constante dos membros mais experientes que conheciam o Ansible e a CLI. Essa dependência atrasava o processo e aumentava a carga de trabalho dos especialistas. A criação de uma ferramenta amigável que automatizasse essa tarefa ajudaria a reduzir a sobrecarga e permitiria que analistas Jr, como Pedro e José, pudessem contribuir sem assistência contínua.
+
 5. PROJETO DE INTERFACES
-6. ARQUITETURA TECNOLÓGICA DA SOLUÇÃO
+
+![image](https://github.com/user-attachments/assets/bc2e215a-d260-42f7-9f5f-24708ee30ee1)
+
+![image](https://github.com/user-attachments/assets/52335b98-c3ed-44a5-9b9c-40d461006d11)
+
+
+7. ARQUITETURA TECNOLÓGICA DA SOLUÇÃO
 
 
 
