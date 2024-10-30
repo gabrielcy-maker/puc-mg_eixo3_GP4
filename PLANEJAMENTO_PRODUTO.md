@@ -345,6 +345,28 @@ Ferramentas como Ansible, Puppet, Chef, SaltStack, e Terraform foram analisadas,
 
 4. ANÁLISE DE PERFIL E DEMANDAS DOS USUÁRIOS
 4.1 Personas
+   
+Nome: Gabriel Luiz
+Faixa etária: 18-30 anos
+Cargo ou papel no contexto do sistema: Analista de Cibersegurança Jr
+Objetivos e expectativas: Facilitar a inserção de novos hosts nas rotinas de backup, tornando o processo mais prático e acessível para todos os membros da equipe, independentemente do nível de experiência técnica.
+Problemas ou desafios enfrentados: Muitos colaboradores não possuem familiaridade com o Ansible e com a interface de linha de comando (CLI) do ambiente, o que dificulta a participação no processo de inclusão de hosts nas rotinas de backup.
+Habilidades técnicas e nível de experiência: Conhecimento básico em administração de servidores Linux, noções de automação com Ansible, experiência inicial com scripts Bash, e habilidades básicas de rede e segurança. Familiaridade com ferramentas de backup e infraestrutura, bem como conceitos de automação e orquestração.
+
+Nome: José Marcos
+Faixa etária: 18-30 anos
+Cargo ou papel no contexto do sistema: Analista de Segurança da Informação Jr
+Objetivos e expectativas: Melhorar a adição de novos hosts ao processo de backup, criando uma solução que seja mais intuitiva e fácil de usar por toda a equipe, independente de seu nível de conhecimento técnico.
+Problemas ou desafios enfrentados: Parte dos colaboradores não tem experiência suficiente com Ansible ou com o uso da interface de linha de comando, o que torna o processo de inclusão de hosts mais difícil e restritivo.
+Habilidades técnicas e nível de experiência: Conhecimento básico em gerenciamento de servidores Linux, noções iniciais de automação com Ansible e criação de scripts Bash, além de conceitos de redes e segurança. Experiência básica com ferramentas de backup e infraestrutura, com familiaridade com práticas de automação e gerenciamento de configuração.
+
+Nome: Pedro Marcelo
+Faixa etária: 18-30 anos
+Cargo ou papel no contexto do sistema: Analista Jr de Segurança Cibernética
+Objetivos e expectativas: Otimizar a inclusão de novos hosts nas rotinas de backup, desenvolvendo um método mais eficiente e acessível para todos os membros da equipe, independente do nível de habilidade técnica.
+Problemas ou desafios enfrentados: Muitos colegas de equipe não possuem conhecimento profundo do Ansible ou de como operar a CLI, o que dificulta a participação na adição de hosts ao sistema de backup.
+Habilidades técnicas e nível de experiência: Conhecimento fundamental sobre administração de servidores Linux, experiência inicial em Bash scripting, e habilidades de automação com Ansible. Noções gerais de segurança de redes, bem como familiaridade com ferramentas de backup e automação de infraestrutura.
+
 4.2 Histórias de usuários
 5. PROJETO DE INTERFACES
 6. ARQUITETURA TECNOLÓGICA DA SOLUÇÃO
